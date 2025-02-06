@@ -13,13 +13,13 @@ import random
 import arcade
 
 # --- Constants ---
-SPRITE_SCALING_PLAYER = 0.5
-SPRITE_SCALING_COIN = .25
-COIN_COUNT = 50
+SPRITE_SCALING_PLAYER = 0.3
+SPRITE_SCALING_COIN = 0.10
+COIN_COUNT = 200
 
-SCREEN_WIDTH = 800
+SCREEN_WIDTH = 1000
 SCREEN_HEIGHT = 600
-SCREEN_TITLE = "Sprite Collect Coins Example"
+SCREEN_TITLE = "Hollow Knight cogiendo paVos"
 
 
 class MyGame(arcade.Window):
@@ -41,7 +41,7 @@ class MyGame(arcade.Window):
         # Don't show the mouse cursor
         self.set_mouse_visible(False)
 
-        arcade.set_background_color(arcade.color.AMAZON)
+        arcade.set_background_color(arcade.color.BRONZE)
 
     def setup(self):
         """ Set up the game and initialize the variables. """
@@ -51,14 +51,14 @@ class MyGame(arcade.Window):
         self.coin_list = arcade.SpriteList()
 
         # Score
-        self.score = 0
+        self.score = 100000
 
         # Set up the player
         # Character image from kenney.nl
-        img = ":resources:images/animated_characters/female_person/femalePerson_idle.png"
+        img = "imagenes/TK.webp"
         self.player_sprite = arcade.Sprite(img, SPRITE_SCALING_PLAYER)
-        self.player_sprite.center_x = 50
-        self.player_sprite.center_y = 50
+        self.player_sprite.center_x = 650
+        self.player_sprite.center_y = 350
         self.player_list.append(self.player_sprite)
 
         # Create the coins
@@ -66,7 +66,7 @@ class MyGame(arcade.Window):
 
             # Create the coin instance
             # Coin image from kenney.nl
-            coin = arcade.Sprite(":resources:images/items/coinGold.png",
+            coin = arcade.Sprite("imagenes/Icon_VBucks.webp",
                                  SPRITE_SCALING_COIN)
 
             # Position the coin
@@ -83,9 +83,9 @@ class MyGame(arcade.Window):
         self.player_list.draw()
 
         # Put the text on the screen.
-        output = f"Score: {self.score}"
+        output = f"Pablo: {self.score}"
         arcade.draw_text(text=output, start_x=10, start_y=20,
-                         color=arcade.color.WHITE, font_size=14)
+                         color=arcade.color.BLACK, font_size=30)
 
     def on_mouse_motion(self, x, y, dx, dy):
         """ Handle Mouse Motion """
